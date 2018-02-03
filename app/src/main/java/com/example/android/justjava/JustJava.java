@@ -77,6 +77,27 @@ public class JustJava extends AppCompatActivity {
         priceTextView.setText(NumberFormat.getCurrencyInstance().format(number));
     }
 
+    /**
+     * This method is for saving data.
+     */
+
+    @Override
+    protected void onSaveInstanceState(Bundle savedInstanceState) {
+        super.onSaveInstanceState(savedInstanceState);
+        savedInstanceState.putInt("SavedQuantity", quantity);
+    }
+
+    /**
+     * This method is for restoring data.
+     */
+    @Override
+    protected void onRestoreInstanceState(Bundle savedInstanceState) {
+        super.onRestoreInstanceState(savedInstanceState);
+        if(savedInstanceState != null) {
+            quantity = savedInstanceState.getInt("SavedQuantity");
+        }
+        display(quantity);
+    }
 
 
 }
